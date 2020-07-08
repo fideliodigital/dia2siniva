@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>PayU: Día 2 sin IVA en Colombia</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="Css\style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+<header>
+  <!-- Del archivo de header.html generado por _site.yml-->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120068903-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-120068903-3');
+  </script>
+  <!-- Del archivo de header.html generado por _site.yml-->
+  <div class="fluid-row" id="encabezado">
+      <div class="container-fluid main-container">
+  
+        <div class="logos">
+          <img src="Imagenes/LogoPayU.png" height="40px" alt="PayU">
+          <a href="https://bit.ly/3hYBwnT">Impacto del Covid19 en el E-Commerce</a>
+        </div>
+   
+        <h1 class="title toc-ignore">Día sin IVA en Colombia</h1>
+        <h4 class="date">Junio 23, 2020 | Lectura 5 min </h4>
+        <br>
+        <p>El 19 de Junio de 2020 se vivió un día sin precedentes en Colombia. Mediante el decreto 682 de 2020 se declararon 3 días en el que determinados tipos de artículos estarían exentos del Impuesto al Valor Agregado (IVA). El viernes 19 fue el primero. Con la información transaccional y digital de comercios vinculados a PayU quisimos entregar una foto de cómo se comportó este día en Colombia respecto a los demás días del mes para facilitar su entendimiento y tomar mejores decisiones en los otros 2 días venideros.</p>
+        <br>
+        <br>
+      </div>  
+  </div>
+</header>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">PayU: Día 2 sin IVA en Colombia</h1>
+
+</div>
+
+
+<p><br></p>
+<div class="row lineaDatos">
+<div class="col-md-4 cuadroDatos">
+<div class="centrar">
+<img src="img/iconos/6-monto.png">
+</div>
+<p><br>El segundo día sin IVA tuvo como particularidad la restricción de compra presencial de electrodomésticos, computadores y equipos de comunicación, lo cual generó una reducción en la facturación (-12.2%) y volumen transaccional (-1.3%) frente a la primera jornada (CredibanCo) <a href="https://www.portafolio.co/economia/el-segundo-dia-sin-iva-no-supero-al-primero-542409">1</a>. Por el contrario, de acuerdo al informe de la Cámara Colombiana de Comercio Electrónica (Ccce), se registró un aumento del 30% en las ventas a través de e-commerce <a href="https://www.larepublica.co/empresas/transacciones-en-e-commerce-del-segundo-dia-sin-iva-crecieron-30-mas-que-en-la-primera-jornada-3027443">2</a>.</p>
+</div>
+<div class="col-md-4 cuadroDatos">
+<div class="centrar">
+<img src="img/iconos/7-motivaciones.png" >
+</div>
+<p><br> Fueron analizadas 23 industrias, de las cuales solo 2 representaron el 57.8% de la participación durante el segundo día sin IVA, las cuales fueron: Department Stores (49.06%) y Miscellaneous home furnishing specialty stores (8,4%). Asimismo, estas dos industrias fueron las de mayor crecimiento en este mismo indicador frente al 19 de junio, con un 7.4% y 5.5%, respectivamente.</p>
+</div>
+<div class="col-md-4 cuadroDatos">
+<div class="centrar">
+<img src="img/iconos/8-efecty.png" >
+</div>
+<p><br>Con respecto al monto procesado el 3 de julio frente al primer día sin IVA, las industrias con porcentajes de crecimiento más altos fueron Membership organizations (697%) y Miscellaneous home furnishing specialty stores (299%).</p>
+</div>
+</div>
+<p><br></p>
+<div id="comportamiento-diario-de-las-ventas" class="section level1">
+<h1>Comportamiento diario de las ventas</h1>
+<div id="del-1ro-de-junio-al-3ro-de-julio-de-2020" class="section level3">
+<h3>Del 1ro de Junio al 3ro de Julio de 2020</h3>
+<div id="texto_desktop">
+<div id="htmlwidget-256bfb242d3d726a8f2b" style="width:100%;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-256bfb242d3d726a8f2b">{"x":{"visdat":{"39383f4ecdb":["function () ","plotlyVisDat"]},"cur_data":"39383f4ecdb","attrs":{"39383f4ecdb":{"x":{},"y":{},"hovertemplate":"día: %{x}","color":{},"colors":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":0,"t":50,"r":0,"pad":0},"title":"","font":{"family":"Open Sans"},"showlegend":false,"xaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":true,"categoryorder":"array","categoryarray":["1<br>Lunes","2<br>Martes","3<br>Miércoles","4<br>Jueves","5<br>Viernes","6<br>Sábado","7<br>Domingo","8<br>Lunes","9<br>Martes","10<br>Miércoles","11<br>Jueves","12<br>Viernes","13<br>Sábado","14<br>Domingo","15<br>Lunes","16<br>Martes","17<br>Miércoles","18<br>Jueves","19<br>Viernes","20<br>Sábado","21<br>Domingo","22<br>Lunes","23<br>Martes","24<br>Miércoles","25<br>Jueves","26<br>Viernes","27<br>Sábado","28<br>Domingo","29<br>Lunes","30<br>Martes","1<br>Miércoles","2<br>Jueves","3<br>Viernes"],"fixedrange":true,"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Ventas ($)","showticklabels":false,"fixedrange":true},"annotations":[{"text":"","x":"2<br>Jueves","y":85255013,"ax":"20<br>Sábado","ay":60860457,"xref":"x","yref":"y","axref":"x","ayref":"y","showarrow":true},{"text":"Aumento: <b>40%<\/b>","x":"3<br>Viernes","y":85255013,"showarrow":false,"yanchor":"bottom"},{"text":"Aumento respecto a un día normal:<br><b>398%<\/b>","x":"25<br>Jueves","y":42627506.5,"showarrow":false,"yanchor":"auto","xanchor":"left"}],"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["19<br>Viernes","3<br>Viernes"],"y":[60860457,85255013],"hovertemplate":["día: %{x}","día: %{x}"],"type":"bar","name":"Día sin IVA","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["10<br>Miércoles","11<br>Jueves","12<br>Viernes","13<br>Sábado","14<br>Domingo","15<br>Lunes","16<br>Martes","17<br>Miércoles","18<br>Jueves","1<br>Lunes","1<br>Miércoles","20<br>Sábado","21<br>Domingo","22<br>Lunes","23<br>Martes","24<br>Miércoles","25<br>Jueves","26<br>Viernes","27<br>Sábado","28<br>Domingo","29<br>Lunes","2<br>Jueves","2<br>Martes","30<br>Martes","3<br>Miércoles","4<br>Jueves","5<br>Viernes","6<br>Sábado","7<br>Domingo","8<br>Lunes","9<br>Martes"],"y":[17477695,17136439,18672550,12103187,8864954,10631007,20600500,20062498,18782795,20803531,25803556,17378547,7875962,9195582,18905997,17016379,19122143,23156562,13840619,8613413,11088890,22448193,17283604,28275192,17320199,16657960,18075519,11532174,7810145,16622705,16081938],"hovertemplate":["día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}"],"type":"bar","name":"Resto de días","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="texto_mobile">
+<div id="htmlwidget-c38261696e3344018518" style="width:100%;height:672px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c38261696e3344018518">{"x":{"visdat":{"393838df4ae":["function () ","plotlyVisDat"]},"cur_data":"393838df4ae","attrs":{"393838df4ae":{"x":{},"y":{},"hovertemplate":"día: %{x}","color":{},"colors":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":0,"t":50,"r":0,"pad":0},"title":"","font":{"family":"Open Sans"},"showlegend":false,"xaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":true,"categoryorder":"array","categoryarray":["(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(19) Viernes","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes","(1) Miércoles","(2) Jueves","(3) Viernes"],"fixedrange":true,"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Ventas ($)","showticklabels":false,"fixedrange":true},"annotations":[{"text":"","x":"(2) Jueves","y":85255013,"ax":"(20) Sábado","ay":60860457,"xref":"x","yref":"y","axref":"x","ayref":"y","showarrow":true},{"text":"Aumento: <b>40%<\/b>","x":"(3) Viernes","y":85255013,"showarrow":false,"yanchor":"bottom"}],"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["(19) Viernes","(3) Viernes"],"y":[60860457,85255013],"hovertemplate":["día: %{x}","día: %{x}"],"type":"bar","name":"Día sin IVA","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["(1) Miércoles","(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(2) Jueves","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes"],"y":[25803556,10631007,20600500,20062498,18782795,22448193,17378547,7875962,9195582,18905997,17016379,19122143,23156562,13840619,8613413,11088890,28275192],"hovertemplate":["día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}"],"type":"bar","name":"Resto de días","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>El incremento del día 2 respecto al día 1 fue del <b>40%</b>. El incremente del día 2 respecto al promedio diario fue de casi <b>4 veces su valor</b>.</p>
+</div>
+<p><br> <br></p>
+<div class="row">
+<div class="col-md-6">
+<h3 id="participación-de-las-industrias">Participación de las industrias</h3>
+<div style="text-align:center;">
+<p>Con respecto al valor de transacciones procesadas.</p>
+</div>
+<div id="htmlwidget-f8d47a3bbbb24c28174c" style="width:100%;height:672px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f8d47a3bbbb24c28174c">{"x":{"visdat":{"393859e338f9":["function () ","plotlyVisDat"]},"cur_data":"393859e338f9","attrs":{"393859e338f9":{"y":{},"x":{},"text":{},"textposition":"inside","textfont":{"color":"white"},"hovertemplate":": %{y}","color":{},"colors":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":0,"t":50,"r":0,"pad":0},"barmode":"stack","title":"","font":{"family":"Open Sans"},"showlegend":true,"yaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":true,"categoryorder":"array","categoryarray":["Recreación (0.5%) ","Equipos de hardware (0.8%) ","Asociaciones y ONGs (1.2%) ","Educación (1.7%) ","Tiendas especializadas (2.6%) ","Gobierno (2.9%) ","Servicios de telecomunicación (3.7%) ","Mercadeo multinivel (4.1%) ","Servicios financieros (5.3%) ","Otros (7.9%) ","Bienes para el hogar (10%) ","Moda y calzado (10.1%) ","Retail y supermercados (49.1%) "],"fixedrange":true,"type":"category"},"xaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":false,"fixedrange":true},"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"y":["Asociaciones y ONGs (1.2%) ","Bienes para el hogar (10%) ","Educación (1.7%) ","Equipos de hardware (0.8%) ","Gobierno (2.9%) ","Mercadeo multinivel (4.1%) ","Moda y calzado (10.1%) ","Otros (7.9%) ","Recreación (0.5%) ","Retail y supermercados (49.1%) ","Servicios de telecomunicación (3.7%) ","Servicios financieros (5.3%) ","Tiendas especializadas (2.6%) "],"x":[0.149466192170818,0.369485987181098,0.814893844020058,0.637196518552451,0.3023311132255,0.534928774928775,0.563460788983675,0.595368615195451,0.480402010050251,0.459421343734162,0.602111549536099,0.419695321001088,0.5],"text":["0.2%","5.9%","7.6%","1.4%","1.3%","4.7%","13%","11.6%","0.5%","41.7%","5.6%","3.9%","2.6%"],"textposition":["inside","inside","inside","inside","inside","inside","inside","inside","inside","inside","inside","inside","inside"],"textfont":{"color":"white"},"hovertemplate":[": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}"],"type":"bar","orientation":"h","name":"19 de Junio","marker":{"color":"rgba(131,31,130,1)","line":{"color":"rgba(131,31,130,1)"}},"error_y":{"color":"rgba(131,31,130,1)"},"error_x":{"color":"rgba(131,31,130,1)"},"xaxis":"x","yaxis":"y","frame":null},{"y":["Asociaciones y ONGs (1.2%) ","Bienes para el hogar (10%) ","Educación (1.7%) ","Equipos de hardware (0.8%) ","Gobierno (2.9%) ","Mercadeo multinivel (4.1%) ","Moda y calzado (10.1%) ","Otros (7.9%) ","Recreación (0.5%) ","Retail y supermercados (49.1%) ","Servicios de telecomunicación (3.7%) ","Servicios financieros (5.3%) ","Tiendas especializadas (2.6%) "],"x":[0.850533807829182,0.630514012818902,0.185106155979942,0.362803481447549,0.6976688867745,0.465071225071225,0.436539211016325,0.404631384804549,0.519597989949749,0.540578656265838,0.397888450463901,0.580304678998912,0.5],"text":["1.2%","10%","1.7%","0.8%","2.9%","4.1%","10.1%","7.9%","0.5%","49.1%","3.7%","5.3%","2.6%"],"textposition":["inside","inside","inside","inside","inside","inside","inside","inside","inside","inside","inside","inside","inside"],"textfont":{"color":"white"},"hovertemplate":[": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}",": %{y}"],"type":"bar","orientation":"h","name":"3 de Julio","marker":{"color":"rgba(166,195,7,1)","line":{"color":"rgba(166,195,7,1)"}},"error_y":{"color":"rgba(166,195,7,1)"},"error_x":{"color":"rgba(166,195,7,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<!-- <div style="text-align:center;"> -->
+<!-- <b><em>Clic en el gráfico para mostrar la industria.</em></b> -->
+<!-- </div> -->
+<p><br><br></p>
+</div>
+<div class="col-md-6">
+<h3 id="porcentaje-de-cambio-de-las-ventas">Porcentaje de cambio de las ventas</h3>
+<div style="text-align:center;">
+<p>19 de Junio respecto al 3 de Julio.<br>Ordenado por porcentaje de participación.</p>
+</div>
+<div id="htmlwidget-7014469a5c5eada00516" style="width:100%;height:672px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7014469a5c5eada00516">{"x":{"visdat":{"3938e27b7f":["function () ","plotlyVisDat"]},"cur_data":"3938e27b7f","attrs":{"3938e27b7f":{"x":{},"y":{},"hovertemplate":{},"text":{},"textfont":{"color":"white"},"textposition":"inside","color":{},"colors":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":0,"t":50,"r":0,"pad":0},"title":{"text":"","font":{"family":"Open Sans","font-size":"17px","fill":"#363636","font-weight":"bold"}},"showlegend":false,"font":{"family":"Open Sans"},"xaxis":{"domain":[0,1],"automargin":true,"showticklabels":true,"title":"","tickformat":"%","fixedrange":true},"yaxis":{"domain":[0,1],"automargin":true,"title":"","fixedrange":true,"categoryorder":"array","categoryarray":["Recreación (0.5%) ","Equipos de hardware (0.8%) ","Asociaciones y ONGs (1.2%) ","Educación (1.7%) ","Tiendas especializadas (2.6%) ","Gobierno (2.9%) ","Servicios de telecomunicación (3.7%) ","Mercadeo multinivel (4.1%) ","Servicios financieros (5.3%) ","Otros (7.9%) ","Bienes para el hogar (10%) ","Moda y calzado (10.1%) ","Retail y supermercados (49.1%) "],"type":"category"},"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false,"displayModeBar":false},"data":[{"x":[-0.130592245419685,-0.225253612050415,-0.320368298769469,-0.339178179241941,-0.430625449317038,-0.772846294841582],"y":["Mercadeo multinivel (4.1%) ","Moda y calzado (10.1%) ","Otros (7.9%) ","Servicios de telecomunicación (3.7%) ","Equipos de hardware (0.8%) ","Educación (1.7%) "],"hovertemplate":["Industria: Mercadeo multinivel (4.1%) : -13%","Industria: Moda y calzado (10.1%) : -23%","Industria: Otros (7.9%) : -32%","Industria: Servicios de telecomunicación (3.7%) : -34%","Industria: Equipos de hardware (0.8%) : -43%","Industria: Educación (1.7%) : -77%"],"text":["-13%","-23%","-32%","-34%","-43%","-77%"],"textfont":{"color":"white"},"textposition":["inside","inside","inside","inside","inside","inside"],"type":"bar","orientation":"h","name":"(-%)","marker":{"color":"rgba(131,31,130,1)","line":{"color":"rgba(131,31,130,1)"}},"error_y":{"color":"rgba(131,31,130,1)"},"error_x":{"color":"rgba(131,31,130,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[4.69047619047619,1.30763178599528,0.706462585034013,0.382680840031112,0.176651158328937,0.0815899581589958,0],"y":["Asociaciones y ONGs (1.2%) ","Gobierno (2.9%) ","Bienes para el hogar (10%) ","Servicios financieros (5.3%) ","Retail y supermercados (49.1%) ","Recreación (0.5%) ","Tiendas especializadas (2.6%) "],"hovertemplate":["Industria: Asociaciones y ONGs (1.2%) : 469%","Industria: Gobierno (2.9%) : 131%","Industria: Bienes para el hogar (10%) : 71%","Industria: Servicios financieros (5.3%) : 38%","Industria: Retail y supermercados (49.1%) : 18%","Industria: Recreación (0.5%) : 8%","Industria: Tiendas especializadas (2.6%) : 0%"],"text":["469%","131%","71%","38%","18%","8%","0%"],"textfont":{"color":"white"},"textposition":["inside","inside","inside","inside","inside","inside","inside"],"type":"bar","orientation":"h","name":"(+%)","marker":{"color":"rgba(166,195,7,1)","line":{"color":"rgba(166,195,7,1)"}},"error_y":{"color":"rgba(166,195,7,1)"},"error_x":{"color":"rgba(166,195,7,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+<div id="análisis-por-industria" class="section level1">
+<h1>Análisis por industria</h1>
+<p><br> <br></p>
+<div class="row">
+<div class="col-md-4">
+<p><h4 style="text-align:center;">Retail y supermercados</h4><div id="htmlwidget-0fea384338b75270542f" style="width:100%;height:288px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0fea384338b75270542f">{"x":{"visdat":{"393836c0459":["function () ","plotlyVisDat"]},"cur_data":"393836c0459","attrs":{"393836c0459":{"x":{},"y":{},"hovertemplate":"día: %{x}","color":{},"colors":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":0,"t":50,"r":0,"pad":0},"title":"","font":{"family":"Open Sans"},"showlegend":false,"xaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":false,"categoryorder":"array","categoryarray":["(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(19) Viernes","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes","(1) Miércoles","(2) Jueves","(3) Viernes"],"fixedrange":true,"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Ventas ($)","showticklabels":false,"fixedrange":true},"annotations":[{"text":"","x":"(2) Jueves","y":41829289.576934,"ax":"(20) Sábado","ay":25377809.012201,"xref":"x","yref":"y","axref":"x","ayref":"y","showarrow":true},{"text":"Aumento: <b>65%<\/b>","x":"(3) Viernes","y":41829289.576934,"showarrow":false,"yanchor":"bottom"}],"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["(1) Miércoles","(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(2) Jueves","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes"],"y":[2558105.968364,2175160.899234,2038885.135535,2048617.312068,1758237.865636,2562343.194651,6414624.70957,2417903.784984,2237590.848791,2465227.423515,2142033.57463,2245933.544404,2269028.889295,2379339.399182,1996295.758005,2371744.296128,2412961.609083],"hovertemplate":["día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}"],"type":"bar","name":"Día común","marker":{"color":"rgba(211,211,211,1)","line":{"color":"rgba(211,211,211,1)"}},"textfont":{"color":"rgba(211,211,211,1)"},"error_y":{"color":"rgba(211,211,211,1)"},"error_x":{"color":"rgba(211,211,211,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["(19) Viernes","(3) Viernes"],"y":[25377809.012201,41829289.576934],"hovertemplate":["día: %{x}","día: %{x}"],"type":"bar","name":"Día sin IVA","marker":{"color":"rgba(166,195,7,1)","line":{"color":"rgba(166,195,7,1)"}},"textfont":{"color":"rgba(166,195,7,1)"},"error_y":{"color":"rgba(166,195,7,1)"},"error_x":{"color":"rgba(166,195,7,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script></p>
+<p>El 3 de julio se duplicaron las transacciones de esta industria y asimismo se registró un crecimiento en el TPV del 64%.</p>
+<p><br> <br></p>
+</div>
+<div class="col-md-4">
+<p><h4 style="text-align:center;">Bienes para el hogar</h4><div id="htmlwidget-6f8540202b6c79b057ee" style="width:100%;height:288px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6f8540202b6c79b057ee">{"x":{"visdat":{"3938233a73a2":["function () ","plotlyVisDat"]},"cur_data":"3938233a73a2","attrs":{"3938233a73a2":{"x":{},"y":{},"hovertemplate":"día: %{x}","color":{},"colors":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":0,"t":50,"r":0,"pad":0},"title":"","font":{"family":"Open Sans"},"showlegend":false,"xaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":false,"categoryorder":"array","categoryarray":["(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(19) Viernes","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes","(1) Miércoles","(2) Jueves","(3) Viernes"],"fixedrange":true,"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Ventas ($)","showticklabels":false,"fixedrange":true},"annotations":[{"text":"","x":"(2) Jueves","y":7179432.958045,"ax":"(20) Sábado","ay":1797852.875672,"xref":"x","yref":"y","axref":"x","ayref":"y","showarrow":true},{"text":"Aumento: <b>299%<\/b>","x":"(3) Viernes","y":7179432.958045,"showarrow":false,"yanchor":"bottom"}],"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["(1) Miércoles","(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(2) Jueves","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes"],"y":[441413.262563,436001.803517,453301.110694,438195.297579,352969.894714,329160.071161,1139148.50347,553662.665815,595556.333486,592082.946102,525691.766268,524915.455765,422393.522129,508252.790503,354662.833372,489056.788027,459667.427582],"hovertemplate":["día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}"],"type":"bar","name":"Día común","marker":{"color":"rgba(211,211,211,1)","line":{"color":"rgba(211,211,211,1)"}},"textfont":{"color":"rgba(211,211,211,1)"},"error_y":{"color":"rgba(211,211,211,1)"},"error_x":{"color":"rgba(211,211,211,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["(19) Viernes","(3) Viernes"],"y":[1797852.875672,7179432.958045],"hovertemplate":["día: %{x}","día: %{x}"],"type":"bar","name":"Día sin IVA","marker":{"color":"rgba(131,31,130,1)","line":{"color":"rgba(131,31,130,1)"}},"textfont":{"color":"rgba(131,31,130,1)"},"error_y":{"color":"rgba(131,31,130,1)"},"error_x":{"color":"rgba(131,31,130,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script></p>
+<p>Según el informe de la Ccce [2], la industria con mayor variación entre el 3 de julio y el 19 de junio fue la del hogar, lo cual se puede ver reflejado en el aumento tanto del TPT como del TPV de un 360% y 299% , respectivamente.</p>
+<p><br> <br></p>
+</div>
+<div class="col-md-4">
+<p><h4 style="text-align:center;">Moda y calzado</h4><div id="htmlwidget-cdbb260cec343f7d4c4c" style="width:100%;height:288px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cdbb260cec343f7d4c4c">{"x":{"visdat":{"39387113615":["function () ","plotlyVisDat"]},"cur_data":"39387113615","attrs":{"39387113615":{"x":{},"y":{},"hovertemplate":"día: %{x}","color":{},"colors":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":0,"t":50,"r":0,"pad":0},"title":"","font":{"family":"Open Sans"},"showlegend":false,"xaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":false,"categoryorder":"array","categoryarray":["(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(19) Viernes","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes","(1) Miércoles","(2) Jueves","(3) Viernes"],"fixedrange":true,"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Ventas ($)","showticklabels":false,"fixedrange":true},"annotations":[{"text":"","x":"(2) Jueves","y":5181374.18466699,"ax":"(20) Sábado","ay":5334168.629614,"xref":"x","yref":"y","axref":"x","ayref":"y","showarrow":true},{"text":"Aumento: <b>-3%<\/b>","x":"(3) Viernes","y":5181374.18466699,"showarrow":false,"yanchor":"bottom"}],"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["(1) Miércoles","(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(2) Jueves","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes"],"y":[353851.630645,485484.140392,584384.526463,671844.705951,591235.797376,465808.785079,543289.918987,387475.470057,418690.54678,291068.16474,375010.922845,377379.785718,394095.455393,417458.568684,345728.567964,330221.129378,337638.959515],"hovertemplate":["día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}"],"type":"bar","name":"Día común","marker":{"color":"rgba(211,211,211,1)","line":{"color":"rgba(211,211,211,1)"}},"textfont":{"color":"rgba(211,211,211,1)"},"error_y":{"color":"rgba(211,211,211,1)"},"error_x":{"color":"rgba(211,211,211,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["(19) Viernes","(3) Viernes"],"y":[5334168.629614,5181374.18466699],"hovertemplate":["día: %{x}","día: %{x}"],"type":"bar","name":"Día sin IVA","marker":{"color":"rgba(70,172,188,1)","line":{"color":"rgba(70,172,188,1)"}},"textfont":{"color":"rgba(70,172,188,1)"},"error_y":{"color":"rgba(70,172,188,1)"},"error_x":{"color":"rgba(70,172,188,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script></p>
+<p>A pesar de que el TPT de esta industria aumentara en 0.8% durante el 3 de julio, el TPV se redujo en un 3%, lo cual también se vio reflejado en la disminución del porcentaje de participación frente al 19 de junio (-2.7%).</p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<p><h4 style="text-align:center;">Servicios financieros</h4><div id="htmlwidget-1eaf4c935fd77433580b" style="width:100%;height:288px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1eaf4c935fd77433580b">{"x":{"visdat":{"39381acf7a4e":["function () ","plotlyVisDat"]},"cur_data":"39381acf7a4e","attrs":{"39381acf7a4e":{"x":{},"y":{},"hovertemplate":"día: %{x}","color":{},"colors":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":0,"t":50,"r":0,"pad":0},"title":"","font":{"family":"Open Sans"},"showlegend":false,"xaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":false,"categoryorder":"array","categoryarray":["(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(19) Viernes","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes","(1) Miércoles","(2) Jueves","(3) Viernes"],"fixedrange":true,"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Ventas ($)","showticklabels":false,"fixedrange":true},"annotations":[{"text":"","x":"(2) Jueves","y":4546979.968218,"ax":"(20) Sábado","ay":2347086.091714,"xref":"x","yref":"y","axref":"x","ayref":"y","showarrow":true},{"text":"Aumento: <b>94%<\/b>","x":"(3) Viernes","y":4546979.968218,"showarrow":false,"yanchor":"bottom"}],"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["(1) Miércoles","(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(2) Jueves","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes"],"y":[6110238.344588,1547477.919486,2936353.999785,2541130.659586,2520537.94429,5040732.597945,2247883.259676,866739.818177,1131123.867582,2546278.551438,2417391.154805,3178311.090487,4182929.316195,2333184.982531,1325235.123876,1648425.123213,5396316.33896],"hovertemplate":["día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}"],"type":"bar","name":"Día común","marker":{"color":"rgba(211,211,211,1)","line":{"color":"rgba(211,211,211,1)"}},"textfont":{"color":"rgba(211,211,211,1)"},"error_y":{"color":"rgba(211,211,211,1)"},"error_x":{"color":"rgba(211,211,211,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["(19) Viernes","(3) Viernes"],"y":[2347086.091714,4546979.968218],"hovertemplate":["día: %{x}","día: %{x}"],"type":"bar","name":"Día sin IVA","marker":{"color":"rgba(0,72,82,1)","line":{"color":"rgba(0,72,82,1)"}},"textfont":{"color":"rgba(0,72,82,1)"},"error_y":{"color":"rgba(0,72,82,1)"},"error_x":{"color":"rgba(0,72,82,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script></p>
+<p>Esta industria tuvo el 5.33% de participación en la segunda jornada del IVA ,1.5% más que en la primer jornada, lo cual puede ser justificado en el aumento del TPT y TPV, 110% y 93%, respectivamente.</p>
+<p><br> <br></p>
+</div>
+<div class="col-md-4">
+<p><h4 style="text-align:center;">Servicios de telecomunicación</h4><div id="htmlwidget-25b4ada7255cedcbe634" style="width:100%;height:288px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-25b4ada7255cedcbe634">{"x":{"visdat":{"39382174350e":["function () ","plotlyVisDat"]},"cur_data":"39382174350e","attrs":{"39382174350e":{"x":{},"y":{},"hovertemplate":"día: %{x}","color":{},"colors":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":0,"t":50,"r":0,"pad":0},"title":"","font":{"family":"Open Sans"},"showlegend":false,"xaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":false,"categoryorder":"array","categoryarray":["(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(19) Viernes","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes","(1) Miércoles","(2) Jueves","(3) Viernes"],"fixedrange":true,"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Ventas ($)","showticklabels":false,"fixedrange":true},"annotations":[{"text":"","x":"(2) Jueves","y":3180784.249594,"ax":"(20) Sábado","ay":3435937.059144,"xref":"x","yref":"y","axref":"x","ayref":"y","showarrow":true},{"text":"Aumento: <b>-7%<\/b>","x":"(3) Viernes","y":3180784.249594,"showarrow":false,"yanchor":"bottom"}],"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["(1) Miércoles","(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(2) Jueves","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes"],"y":[2615416.36184,838603.663064,2013136.326888,1996140.776851,2060610.211185,2024632.314985,1176290.715815,502229.337281,648128.999766,2311341.417601,1753663.748075,1714352.108134,1987435.21877,1060680.264745,514855.928395,697984.507107,2336575.873587],"hovertemplate":["día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}"],"type":"bar","name":"Día común","marker":{"color":"rgba(211,211,211,1)","line":{"color":"rgba(211,211,211,1)"}},"textfont":{"color":"rgba(211,211,211,1)"},"error_y":{"color":"rgba(211,211,211,1)"},"error_x":{"color":"rgba(211,211,211,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["(19) Viernes","(3) Viernes"],"y":[3435937.059144,3180784.249594],"hovertemplate":["día: %{x}","día: %{x}"],"type":"bar","name":"Día sin IVA","marker":{"color":"rgba(67,143,41,1)","line":{"color":"rgba(67,143,41,1)"}},"textfont":{"color":"rgba(67,143,41,1)"},"error_y":{"color":"rgba(67,143,41,1)"},"error_x":{"color":"rgba(67,143,41,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script></p>
+<p>Esta industria tuvo una participación del 3.7% durante el 3 de julio, lo cual representa un 1.9% menos que el 19 de junio; y aunque se registró un 10% más de TPT, el TPV disminuyó en un 7%.</p>
+<p><br> <br></p>
+</div>
+<div class="col-md-4">
+<p><h4 style="text-align:center;">Tiendas especializadas</h4><div id="htmlwidget-583bc0feb2193f9cda75" style="width:100%;height:288px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-583bc0feb2193f9cda75">{"x":{"visdat":{"393838ec2278":["function () ","plotlyVisDat"]},"cur_data":"393838ec2278","attrs":{"393838ec2278":{"x":{},"y":{},"hovertemplate":"día: %{x}","color":{},"colors":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"}},"layout":{"margin":{"b":50,"l":0,"t":50,"r":0,"pad":0},"title":"","font":{"family":"Open Sans"},"showlegend":false,"xaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":false,"categoryorder":"array","categoryarray":["(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(19) Viernes","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes","(1) Miércoles","(2) Jueves","(3) Viernes"],"fixedrange":true,"type":"category"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Ventas ($)","showticklabels":false,"fixedrange":true},"annotations":[{"text":"","x":"(2) Jueves","y":2220533.307099,"ax":"(20) Sábado","ay":1585714.952082,"xref":"x","yref":"y","axref":"x","ayref":"y","showarrow":true},{"text":"Aumento: <b>40%<\/b>","x":"(3) Viernes","y":2220533.307099,"showarrow":false,"yanchor":"bottom"}],"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["(1) Miércoles","(15) Lunes","(16) Martes","(17) Miércoles","(18) Jueves","(2) Jueves","(20) Sábado","(21) Domingo","(22) Lunes","(23) Martes","(24) Miércoles","(25) Jueves","(26) Viernes","(27) Sábado","(28) Domingo","(29) Lunes","(30) Martes"],"y":[134540.234541,222620.165991,207077.678389,177771.05011,164518.593009,158686.186541,183236.017254,124772.006924,96718.054688,151999.837353,145237.284234,151503.148086,194115.982765,181616.171298,183502.515033,184239.305139,134722.359423],"hovertemplate":["día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}","día: %{x}"],"type":"bar","name":"Día común","marker":{"color":"rgba(211,211,211,1)","line":{"color":"rgba(211,211,211,1)"}},"textfont":{"color":"rgba(211,211,211,1)"},"error_y":{"color":"rgba(211,211,211,1)"},"error_x":{"color":"rgba(211,211,211,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["(19) Viernes","(3) Viernes"],"y":[1585714.952082,2220533.307099],"hovertemplate":["día: %{x}","día: %{x}"],"type":"bar","name":"Día sin IVA","marker":{"color":"rgba(72,165,217,1)","line":{"color":"rgba(72,165,217,1)"}},"textfont":{"color":"rgba(72,165,217,1)"},"error_y":{"color":"rgba(72,165,217,1)"},"error_x":{"color":"rgba(72,165,217,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script></p>
+<p>Según el informe de la Ccce [2], la industria con mayor variación entre el 3 de julio y el 19 de junio fue la del hogar, lo cual se puede ver reflejado en el aumento tanto del TPT como del TPV de un 360% y 299% , respectivamente.</p>
+</div>
+</div>
+</div>
+
+<footer>
+  <img class="subContenedor" width="1202" height="157" src="Imagenes/footerIconos.png" usemap="#mapaLogos">
+  <map name="mapaLogos">
+    <area shape="rect" coords="820,10,970,157" href="https://www.payulatam.com/co/?utm_source=campaign&utm_medium=referral&utm_campaign=CO-Dia1SinIva" alt="PayU">
+    <area shape="rect" coords="1020,10,1170,150" href="http://fidelio.com.co/?utm_source=campaign&utm_medium=referral&utm_campaign=CO-Dia1SinIva" alt="Fidelio">
+</map>
+  <div class="contenedorLinks"> 
+
+  <a href="https://legal.payulatam.com/ES/politica_de_privacidad.HTML">Política de privacidad</a>
+   <br>
+</div>
+</footer>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
