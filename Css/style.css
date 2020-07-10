@@ -14,9 +14,9 @@ h1.title.toc-ignore {
 
 header #encabezado
 {
-  /* background-image: url("../Imagenes/background-removebg-preview.png"); */
-  background-image: url("../Imagenes/backgroundVerdeEdit-removebg-preview.png");
-  background-image: url("../Imagenes/backgroundVerdeBlanco.png");
+  /* background-image: url("https://latam.payu.com/hubfs/reporte-covid-ecommerce/Imagenes/background-removebg-preview.png"); */
+  background-image: url("https://latam.payu.com/hubfs/reporte-me ayucovid-ecommerce/Imagenes/backgroundVerdeEdit-removebg-preview.png");
+  background-image: url("https://latam.payu.com/hubfs/reporte-covid-ecommerce/Imagenes/backgroundVerdeBlanco.png");
   background-size: cover;
   height: 400px;
   color: white;
@@ -24,7 +24,6 @@ header #encabezado
   display: block;
   background-position-x: center;
 }
-
 
 
 #encabezado .logos
@@ -171,6 +170,17 @@ list-style: none;
     
   }
 
+  /*desaparece el link de arriba en el reporte movil*/
+    #encabezado .logos a 
+      {
+        display:none !important
+    }
+    /*reduce el tamaño del titulo apra que no se salga*/
+    div#comportamiento-diario-de-las-ventas h1 
+    {
+          font-size: 36px;
+      }
+
     header #encabezado {
       
       background-image: none;
@@ -178,8 +188,8 @@ list-style: none;
     }
 
     header .container-fluid.main-container {
-      /* background-image: url(../Imagenes/background-removebg-preview.png); */
-  background-image: url("../Imagenes/backgroundVerdeBlanco.png");
+      /* background-image: url(https://latam.payu.com/hubfs/reporte-covid-ecommerce/Imagenes/background-removebg-preview.png); */
+  background-image: url("https://latam.payu.com/hubfs/reporte-covid-ecommerce/Imagenes/backgroundVerdeBlanco.png");
 
       background-repeat: no-repeat;
       height: auto;
@@ -414,7 +424,7 @@ body .container-fluid {
 footer
 {
   /* background-color: #e3e3e8; */
- background-image: url("../Imagenes/fondoFooter.png"); 
+ background-image: url("https://latam.payu.com/hubfs/reporte-covid-ecommerce/Imagenes/fondoFooter.png"); 
  height: 300px;;
  
  /* background-image: radial-gradient(40% 52px at 50% -30px, #FFF 98%, transparent 100%); */
@@ -443,7 +453,7 @@ footer a
   /* width: 100%;
   height: 100%;
   position: absolute;
-  background-image: url("../Imagenes/footerIconos.png");
+  background-image: url("https://latam.payu.com/hubfs/reporte-covid-ecommerce/Imagenes/footerIconos.png");
   background-repeat: no-repeat;
   background-size: auto;
   background-position-y: center;
@@ -464,7 +474,8 @@ footer a
 
   .subContenedor 
   {
-    right: -13px;
+    /*right: -13px;*/
+    right: 0px;
     /* left: 10px; */
     /* padding-left: 10%; */
     position: absolute;
@@ -473,9 +484,13 @@ footer a
   }
   .contenedorLinks
   {
-    padding: 85px 0%;
-    text-align: center;
-}
+      padding: 85px 0%;
+      text-align: center;
+  }
+.contenedorLinks a
+  {
+     margin-top: 5px;
+  }
 
 }
 
